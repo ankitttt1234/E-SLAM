@@ -25,9 +25,10 @@ app.use(passport.session());
 
 const tempUrl='mongodb://localhost:27017/Slam';
 const findOrCreate = require('mongoose-findorcreate')
+const url='mongodb+srv://admin:admin@cluster0-rxkgi.mongodb.net/Slam?retryWrites=true&w=majority';
 
 
-mongoose.connect(tempUrl,{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
