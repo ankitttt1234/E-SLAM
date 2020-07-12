@@ -25,7 +25,7 @@ app.use(passport.session());
 
 const tempUrl='mongodb://localhost:27017/Slam';
 const findOrCreate = require('mongoose-findorcreate')
-const url='mongodb+srv://admin:admin@cluster0-rxkgi.mongodb.net/Slam?retryWrites=true&w=majority';
+const url='mongodb+srv://admin:Ankit@123@cluster0-rxkgi.mongodb.net/Slam?retryWrites=true&w=majority';
 
 
 mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true});
@@ -62,7 +62,7 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-      
+      console.log(profile)
     User.findOrCreate({ username: profile.emails[0].value }, function (err, user) { 
       return cb(err, user);
     });
@@ -90,7 +90,7 @@ passport.use(new FacebookStrategy({
 require('./routes')(app)
 
 app.get("/",function(req,res){
-    res.send("ho")
+    res.render("index")
 })
 
 app.post("/log-in",function(req,res){
