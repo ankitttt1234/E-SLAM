@@ -90,7 +90,7 @@ passport.use(new FacebookStrategy({
 require('./routes')(app)
 
 app.get("/",function(req,res){
-    res.sendFile(__dirname+'/index.html')
+    res.send("Welcome")
 })
 
 app.post("/log-in",function(req,res){
